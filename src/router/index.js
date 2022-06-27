@@ -3,8 +3,17 @@ import VueRouter from 'vue-router'
 
 
 Vue.use(VueRouter)
-const login = () => import("../views/Login/Login")
+const login = () => import("../views/Login")
 const routes = [
+    {
+        path: '/login',
+        name: 'login',
+        component: login
+    }, {
+        path:'/main',
+        name:'main' ,
+        component: ()=>import('../views/Main')
+    },
     {
         path: '/',
         name: 'Main',
@@ -26,15 +35,7 @@ const routes = [
         name: 'register',
         component: () => import('../views/register/Register')
     },
-    {
-        path: '/login',
-        name: 'login',
-        component: login
-    }, {
-        path:'/main',
-        name:'main' ,
-        component: ()=>import('../views/Main.vue')
-    }
+
 ]
 
 const router = new VueRouter({

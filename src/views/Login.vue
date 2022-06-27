@@ -29,8 +29,7 @@
         <input class="submit" type="button" @click="open" value="登录" ref="button"/>
       </form>
       <div class="help">
-        <a href=""  @click="register">注册账号</a>
-        <a href="">找回密码</a>
+       <router-link to="/register">注册账户</router-link>
       </div>
     </div>
   </div>
@@ -39,7 +38,7 @@
 
 <script>
 import {userRoute,userRouter} from 'vue-router'
-const Route=userRoute();
+// const Route=userRoute
 const Router= userRouter
 export default {
   name: "Login",
@@ -62,9 +61,7 @@ export default {
           var data = response.data;
           if (data.code == 1000){
             //登录成功跳转首页页面
-           Router.push({
-             name:'main'
-           })
+          this.$route.push({name:'home'})
           }else {
             alert("账号或密码错误")
           }
@@ -73,7 +70,9 @@ export default {
         alert("用户名或密码不能为空")
       }
     },
-    register(){}
+    register(){
+      this.$route.push({name:'home'})
+    }
   }
 }
 </script>
