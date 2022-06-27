@@ -7,7 +7,7 @@
 
 
 <script>
- import Login from "../src/components/Login"
+ import Login from "../src/views/Login/Login"
 
 export default {
   name:'App',
