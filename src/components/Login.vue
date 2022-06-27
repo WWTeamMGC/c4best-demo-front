@@ -24,9 +24,9 @@
     <div class="right">
       <form>
         <h1>Login</h1>
-        <input  class="userinfo" type="text" placeholder="用户名"/>
-        <input  class="userinfo" type="password" placeholder="密码"/>
-        <input class="submit" type="submit" @click="open" value="登录"/>
+        <input  class="userinfo" type="text" placeholder="用户名" v-model="username"/>
+        <input  class="userinfo" type="password" placeholder="密码" v-model="password"/>
+        <input class="submit" type="button" @click="open" value="登录" ref="button"/>
       </form>
       <div class="help">
         <a href="">注册账号</a>
@@ -41,7 +41,34 @@
 export default {
   name: "Login",
   methods:{
-    open(){}
+    /*登录部分前端验证*/
+    open() {
+      var name = this.username
+      var passWord = this.password
+      if (name != null && name != ""&& passWord != null && passWord != ""){
+        this.$refs.button.submit;
+        let postData = this.qs.stringify({
+          username: this.username,
+          password: this.password
+        })
+        this.$axios({
+          method:'post',
+          url:'/user/SignIn',
+          data:postData
+        }).then(response=>{
+          var data = response.data;
+          if (data.code == 1000){
+            //登录成功跳转首页页面
+
+          }else {
+            alert("账号或密码错误")
+          }
+        })
+      }else {
+        alert("用户名或密码不能为空")
+      }
+    }
+
   }
 }
 </script>
@@ -57,8 +84,8 @@ export default {
   border-radius: 10px;
   left: 50%;
   top: 50%;
-  margin-top:200px;
-  margin-left:-400px;
+  margin-top:-200px;
+  margin-left:-100px;
   display: flex;
 
 }
