@@ -1,0 +1,132 @@
+<template>
+  <body>
+  <div>
+    <vue-particles
+        color="#555"
+        :particleOpacity="0.7"
+        :particlesNumber="150"
+        shapeType="circle"
+        :pparticleSize="4"
+        linesColor="#555"
+        :linewidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :lineDistance="150"
+        :moveSpeed="2"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="false"
+        clickMode="push"
+        class="lizi"/>
+  </div>
+  <div class="login">
+    <div class="left"></div>
+    <div class="right">
+      <form>
+        <h1>Login</h1>
+        <input  class="userinfo" type="text" placeholder="用户名"/>
+        <input  class="userinfo" type="password" placeholder="密码"/>
+        <input class="submit" type="submit" @click="open" value="登录"/>
+      </form>
+      <div class="help">
+        <a href="">注册账号</a>
+        <a href="">找回密码</a>
+      </div>
+    </div>
+  </div>
+  </body>
+</template>
+
+<script>
+export default {
+  name: "Login",
+  methods:{
+    open(){}
+  }
+}
+</script>
+
+<style scoped>
+
+
+.login {
+  width: 600px;
+  height: 400px;
+  background: rgba(255, 255, 255, 60%);
+  position: absolute;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  margin-top:200px;
+  margin-left:-400px;
+  display: flex;
+
+}
+
+.left {
+  width: 200px;
+  height: 400px;
+  background-size: cover;
+  opacity: 60%;
+}
+
+.right {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background: white;
+}
+
+.right h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.right .userinfo {
+  width: 280px;
+  height: 20px;
+  padding: 10px;
+  margin: 30px 30px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.right .submit {
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(100deg, #409EFF, #FFFFFF);
+  transform: translateX(50px);
+  margin-top: 10px;
+  align-self: center;
+  border-radius: 5px;
+  border:none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px #88888888;
+}
+.right .submit:hover{
+  opacity: 80%;
+}
+.help{
+  width: 300px;
+  display :flex;
+  margin-top:30px;
+  justify-content:space-between;
+  transform:translateX(50px);
+}
+body{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.lizi{
+  position:fixed;
+  top:0;
+  width:100%;
+}
+</style>

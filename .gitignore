@@ -4,3 +4,4 @@
 *.dll
 *.so
 *.out
+node_modules
