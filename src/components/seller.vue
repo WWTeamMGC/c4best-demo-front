@@ -1,8 +1,8 @@
 <template>
-
-  <div class="com-container">
-  <div class="com-chart" ref="seller_ref"></div>
+  <div>
+    <e-charts class="chart" :option="option"></e-charts>
   </div>
+
 </template>
 
 <script>
@@ -10,48 +10,57 @@ export default {
   name: "seller",
   data() {
     return {
-      chartInstance: null,
-      allData: null ,//服务器返回的数据
+      data:this.getRandomData()
     }
   },
-  mounted() {
-    this.initChart()
-    this.getData()
-
-  },
-  method: {
-    // 初始化echartsInstance对象
-    initChart() {
-      this.chartInstance = this.$echarts.init(this.$refs.seller_ref)
-    },
-    //获取服务器的数据
-    getData() {
-
-      this.updateChart()
-    },
-    //更新图表
-    updateChart() {
-      const option = {
+  computed: {
+    option() {
+      return {
         xAxis: {
-          type: 'value'
+          type: 'category',
+          data: this.data.map(d =>d.time)
         },
         yAxis: {
-          type: 'category',
-          data: ['1', '2', '3', '4', '5', '6', '7', '8']
+          type: 'value'
         },
         series: [
           {
-            type: 'bar',
-            data: [1200, 1400, 5345, 5434, 4444, 5342, 4345, 3452]
+            data: this.data.map(d =>d.value),
+            type: 'line'
           }
         ]
       }
-      this.chartInstance.setOptions(option)
     }
+  },
+  methods:{
+    getRandomData() {
+      return[ {
+        time: '2018-01-01',
+        value: Math.random()*10
+      },
+        {
+          time: '2018-01-01',
+          value: Math.random()*100
+        },
+        {
+          time: '2018-01-01',
+          value: Math.random()*212
+        }, {
+          time: '2018-01-01',
+          value: Math.random()*212
+        },]
+    }
+  },
+  created() {
+    setInterval(()=>{
+      this.data=this.getRandomData()
+    },1000)
   }
 }
 </script>
 
 <style scoped>
-
+.chart {
+  height: 400px;
+}
 </style>

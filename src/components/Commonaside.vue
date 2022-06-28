@@ -34,8 +34,8 @@ export default {
           url: 'Home/Home'
         },
         {
-          path: '/mall',
-          name: 'mall',
+          path: '/sellpage',
+          name: 'sellpage',
           label: '单个流量',
           icon: 'video-play',
           url: 'MallMange/MallMange'
