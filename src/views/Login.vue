@@ -44,6 +44,10 @@ export default {
     open() {
       var name = this.username
       var passWord = this.password
+      //模拟登录成功跳转，后续这段代码注释掉
+      this.$router.push({
+        name:'home'
+      })
       if (name != null && name != ""&& passWord != null && passWord != ""){
         this.$refs.button.submit;
         let postData = this.qs.stringify({
