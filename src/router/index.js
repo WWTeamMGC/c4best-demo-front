@@ -27,6 +27,11 @@ const routes = [
                 path: '/user',
                 name: 'user',
                 component: () => import('../views/User')
+            },
+            {
+                path: '/sellpage',
+                name:'sellpage',
+                component:()=>import('../views/sellerpage/Sellerpage')
             }
         ]
     },
@@ -35,11 +40,7 @@ const routes = [
         name: 'register',
         component: () => import('../views/register/Register')
     },
-    {
-        path: '/sellpage',
-        name:'sellpage',
-        component:()=>import('../views/sellerpage/Sellerpage')
-    }
+
 
 ]
 
