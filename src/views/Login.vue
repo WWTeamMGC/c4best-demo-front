@@ -37,9 +37,6 @@
 </template>
 
 <script>
-import {userRoute,userRouter} from 'vue-router'
-// const Route=userRoute
-const Router= userRouter
 export default {
   name: "Login",
   methods:{
@@ -61,7 +58,9 @@ export default {
           var data = response.data;
           if (data.code == 1000){
             //登录成功跳转首页页面
-          this.$route.push({name:'home'})
+          this.$router.push({
+            name:'home'
+          })
           }else {
             alert("账号或密码错误")
           }
@@ -70,9 +69,6 @@ export default {
         alert("用户名或密码不能为空")
       }
     },
-    register(){
-      this.$route.push({name:'home'})
-    }
   }
 }
 </script>

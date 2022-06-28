@@ -6,8 +6,8 @@ Vue.use(VueRouter)
 const login = () => import("../views/Login")
 const routes = [
     {
-        path: '/login',
-        name: 'login',
+        path: '/',
+        name: '',
         component: login
     }, {
         path:'/main',
@@ -15,8 +15,8 @@ const routes = [
         component: ()=>import('../views/Main')
     },
     {
-        path: '/',
-        name: 'Main',
+        path: '/main',
+        name: 'main',
         component: () => import('../views/Main'),
         children: [
             {
@@ -35,6 +35,11 @@ const routes = [
         name: 'register',
         component: () => import('../views/register/Register')
     },
+    {
+        path: '/sellpage',
+        name:'sellpage',
+        component:()=>import('../views/sellerpage/Sellerpage')
+    }
 
 ]
 

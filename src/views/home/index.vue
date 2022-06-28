@@ -42,7 +42,9 @@
         </el-card>
       </div>
 <!--      折线图的位置-->
-      <el-card style="height: 280px"></el-card>
+      <el-card style="height: 280px">
+
+      </el-card>
       <div class="graph">
 <!--        柱状图-->
         <el-card style="height: 260px"></el-card>
@@ -142,14 +144,11 @@ export default {
           color: "#5ab1ef",
         },
       ],
-
+      chartInstance:null,
+      allData:null //服务器返回的数据
     }
   },
-  mounted() {
-    getMenu().then(res=>{
-      console.log(res)
-    })
-  }
+
 }
 </script>
 
