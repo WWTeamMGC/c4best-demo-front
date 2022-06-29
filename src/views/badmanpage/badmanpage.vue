@@ -1,10 +1,17 @@
 <template>
-
+  <badman></badman>
 </template>
 
 <script>
+import badman from "@/components/badman";
+
 export default {
-  name: "badmanpage"
+  name: "badmanpage",
+  components: {
+    badman: badman
+  },
+
+
 }
 </script>
 

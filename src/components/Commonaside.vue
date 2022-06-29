@@ -13,8 +13,8 @@
         <i :class="'el-icon-'+item.icon"></i>
         <span slot="title">{{item.label}}</span>
       </template>
-      <el-menu-item-group v-for="(subItem,subIndex) in item.children" :key="subItem.path">
-        <el-menu-item :index="subIndex">{{subItem.label}}</el-menu-item>
+      <el-menu-item-group  v-for="(subItem,subIndex) in item.children" :key="subItem.path">
+        <el-menu-item @click="clickMenu(subItem)" :index="subIndex">{{subItem.label}}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -40,8 +40,8 @@ export default {
           icon: 'video-play',
           url: 'MallMange/MallMange'
         },{
-          path: '/user',
-          name: 'user',
+          path: '/oneIpcountpage',
+          name: 'oneIpcountpage',
           label: '分布流量',
           icon: 'user',
           url: 'UserMange/UserMange'
@@ -51,15 +51,15 @@ export default {
           icon: 'location',
           children: [
             {
-              path: 'page1',
-              name: 'page1',
-              label: '页面1',
+              path: '/badmanpage',
+              name: 'badmanpage',
+              label: '黑名单',
               icon: 'setting',
               url: 'Other/PageOne'
             }, {
-              path: 'page2',
-              name: 'page2',
-              label: '页面2',
+              path: '/badwordpage',
+              name: 'badwordpage',
+              label: '敏感词',
               icon: 'setting',
               url: 'Other/PageTwo'
             }

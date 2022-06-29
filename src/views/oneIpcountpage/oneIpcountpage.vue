@@ -5,8 +5,8 @@
 <script>
 import oneIpcount from "@/components/oneIpcount";
 export default {
-  name: "oneIpcount",
-  computed:{
+  name: "oneIpcountpage",
+  components:{
     oneIpcount:oneIpcount
   }
 }

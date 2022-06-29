@@ -1,10 +1,14 @@
 <template>
-
+<badword></badword>
 </template>
 
 <script>
+import badword from "@/components/badword";
 export default {
-  name: "badwordpage"
+  name: "badwordpage",
+  components:{
+    badword:badword
+  }
 }
 </script>
 

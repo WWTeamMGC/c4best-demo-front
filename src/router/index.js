@@ -28,24 +28,20 @@ const routes = [
                 path: '/sellpage',
                 name: 'sellpage',
                 component: () => import('../views/sellerpage/Sellerpage')
-            },
-            {
-                path: '/badmanpage',
-                name: 'badmanpage',
-                component: () => import('../views/badmanpage/badmanpage')
-            }, {
-                path: '/badwordpage',
-                name: 'badwordpage',
-                component: () => import('../views/badwordpage/badwordpage')
             }, {
                 path: '/oneIpcountpage',
-                name:'oneIPcountpage',
-                component:() =>import('../views/oneIpcountpage/oneIpcountpage')
+                name: 'oneIpcountpage',
+                component: () => import('../views/oneIpcountpage/oneIpcountpage')
+
+            }, {
+                path:'/badmanpage',
+                name:'badmanpage',
+                component:()=>import('../views/badmanpage/badmanpage')
             },
             {
-                path: '/oneApicountpage',
-                name: 'oneApicountpage',
-                component:()=> import('../views/oneApicountpage/oneApicountpage')
+                path:'/badwordpage',
+                name:'badwordpage',
+                component:()=>import('../views/badwordpage/badwordpage')
             }
         ]
     },
