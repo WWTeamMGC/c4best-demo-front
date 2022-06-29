@@ -36,7 +36,7 @@ export default {
         {
           path: '/sellpage',
           name: 'sellpage',
-          label: '单个流量',
+          label: '总流量',
           icon: 'video-play',
           url: 'MallMange/MallMange'
         },{
