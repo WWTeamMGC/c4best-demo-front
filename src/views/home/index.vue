@@ -31,10 +31,8 @@
     </el-col>
     <!--    主页右上角的布局-->
     <el-col style="margin-top: 20px" :span="16">
-<!--      <div class="num">
-&lt;!&ndash;        六块方格&ndash;&gt;
-
-      </div>-->
+      <div class="num">
+      </div>
 <!--      折线图的位置-->
       <el-card style="height: 280px">
 
@@ -50,7 +48,6 @@
 </template>
 
 <script>
-import {getMenu} from '../../../api/data'
 export default {
   name: 'home',
   data() {
