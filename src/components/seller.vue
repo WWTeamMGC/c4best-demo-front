@@ -33,6 +33,7 @@ export default {
     }
   },
   methods:{
+    //模拟后端来的数据，后端来数据之后注释掉
     getRandomData() {
       return[ {
         time: '2018-01-01',
@@ -49,12 +50,22 @@ export default {
           time: '2018-01-01',
           value: Math.random()*212
         },]
+    },
+    //接收后端来的数据
+    totalCount() {
+      this.$axios({
+        method:'post',
+        url:''
+      }).then(response=>{
+        return[response]
+      })
     }
   },
+  //数据实时更新
   created() {
     setInterval(()=>{
       this.data=this.getRandomData()
-    },1000)
+    },1000*60)
   }
 }
 </script>

@@ -29,14 +29,14 @@ export default {
         {
           path: '/',
           name: 'home',
-          label: '总流量',
+          label: '首页',
           icon: 's-home',
           url: 'Home/Home'
         },
         {
           path: '/sellpage',
           name: 'sellpage',
-          label: '单个流量',
+          label: '总流量',
           icon: 'video-play',
           url: 'MallMange/MallMange'
         },{

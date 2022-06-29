@@ -10,11 +10,11 @@
           <div class="inputBox">
             <input type="password" v-model="password" placeholder="密码"></input>
           </div>
-          <div class="inputBox">
+<!--          <div class="inputBox">
             <input type="password" placeholder="确认密码"></input>
-          </div>
+          </div>-->
           <div class="inputBox">
-            <input type="button" value="登录" @click="register" ref="button01">
+            <input type="button" value="注册" @click="register" ref="button01">
           </div>
         </form>
       </div>
@@ -29,6 +29,10 @@ export default {
     register() {
       var name = this.username
       var passWord = this.password
+      //模拟注册成功跳转，后续这段代码注释掉
+      this.$router.push({
+        name: ''
+      })
       if (name != null && name != "" && passWord != null && passWord != "") {
         this.$refs.button01.submit;
         let postData = this.qs.stringify({
