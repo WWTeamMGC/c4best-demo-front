@@ -29,7 +29,7 @@ export default {
         {
           path: '/',
           name: 'home',
-          label: '总流量',
+          label: '首页',
           icon: 's-home',
           url: 'Home/Home'
         },

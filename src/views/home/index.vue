@@ -32,14 +32,6 @@
     <!--    主页右上角的布局-->
     <el-col style="margin-top: 20px" :span="16">
       <div class="num">
-<!--        六块方格-->
-        <el-card v-for="item in countData" :key="item.name" :body-style="{display:'flex',padding:0}">
-          <i class="icon" :class="`el-icon-${item.icon}`" :style="{background:item.color}"></i>
-          <div class="detail">
-            <p class="num">￥{{ item.value }}</p>
-            <p class="txt"></p>
-          </div>
-        </el-card>
       </div>
 <!--      折线图的位置-->
       <el-card style="height: 280px">
@@ -56,7 +48,6 @@
 </template>
 
 <script>
-import {getMenu} from '../../../api/data'
 export default {
   name: 'home',
   data() {
