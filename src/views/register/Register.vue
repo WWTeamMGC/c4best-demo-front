@@ -31,30 +31,35 @@ export default {
       var passWord = this.password
       //模拟注册成功跳转，后续这段代码注释掉
       this.$router.push({
-        path:'/'
+        path: '/'
       })
       if (name != null && name != "" && passWord != null && passWord != "") {
-        this.$refs.button01.submit;
-        let postData = this.qs.stringify({
-          username: this.username,
-          password: this.password
-        })
+        var regExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        if (regExp.test(name)){
+          this.$refs.button01.submit;
+          let postData = this.qs.stringify({
+            username: this.username,
+            password: this.password
+          })
 
-        this.$axios({
-          method: 'post',
-          url: '/user/SignOut',
-          data: postData
-        }).then(response => {
-          var data = response.data;
-          if (data.code == 1) {
-            //注册成功跳转登录页面
-            this.$router.push({
-              name: ''
-            })
-          } else {
-            alert("服务器繁忙.......")
-          }
-        })
+          this.$axios({
+            method: 'post',
+            url: '/user/SignOut',
+            data: postData
+          }).then(response => {
+            var data = response.data;
+            if (data.code == 1) {
+              //注册成功跳转登录页面
+              this.$router.push({
+                path: '/'
+              })
+            } else {
+              alert("服务器繁忙.......")
+            }
+          })
+        }else {
+          alert("请输入合法的邮箱")
+        }
       } else {
         alert("用户名或密码不能为空")
       }
