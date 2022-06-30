@@ -46,14 +46,14 @@
       <div class="num">
       </div>
 <!--      折线图的位置-->
-      <el-card style="height: 280px">
+      <el-card style="height: 400px">
 
       </el-card>
       <div class="graph">
 <!--        柱状图-->
-        <el-card style="height: 260px"></el-card>
+        <el-card style="height: 360px"></el-card>
 <!--        饼状图-->
-        <el-card style=" height: 260px"></el-card>
+        <el-card style=" height: 360px"></el-card>
       </div>
     </el-col>
   </el-row>

@@ -56,12 +56,23 @@ export default {
               label: '黑名单',
               icon: 'setting',
               url: 'Other/PageOne'
-            }, {
+            },  {
               path: '/badwordpage',
               name: 'badwordpage',
               label: '敏感词',
               icon: 'setting',
               url: 'Other/PageTwo'
+            }
+          ]
+        },
+        {
+          label: '访问次数',
+          icon:'location',
+          children: [
+            {
+              path: '/oneApicountpage',
+              name:'oneApicountpage',
+              label: 'Api的访问次数'
             }
           ]
         }
