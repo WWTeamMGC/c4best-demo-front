@@ -57,7 +57,7 @@ export default {
         method: 'post',
         url: ''
       }).then(response => {
-        return [response]
+        return response
       })
     }
   },

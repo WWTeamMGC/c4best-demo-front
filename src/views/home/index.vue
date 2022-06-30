@@ -18,13 +18,25 @@
       <!--      主页的作品下角-->
       <el-card style="margin-top: 20px;height: 460px">
         <el-table :data="tableData">
-          <el-table-column
+<!--          <el-table-column
               v-for="(val,key) in tableabel"
               :key="key"
               :prop="key"
               :label="val"
           >
 
+          </el-table-column>-->
+          <el-table-column
+              label="IP"
+              prop="ip">
+          </el-table-column>
+          <el-table-column
+              label="PC/MP"
+              prop="pc_mp">
+          </el-table-column>
+          <el-table-column
+              label="Address"
+              prop="address">
           </el-table-column>
         </el-table>
       </el-card>
