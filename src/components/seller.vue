@@ -1,6 +1,7 @@
 <template>
   <div>
     <e-charts class="chart" :option="option"></e-charts>
+
   </div>
 
 </template>
@@ -72,6 +73,7 @@ export default {
 
 <style scoped>
 .chart {
+margin-top: auto;
   height: 400px;
 }
 </style>

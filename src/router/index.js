@@ -3,12 +3,11 @@ import VueRouter from 'vue-router'
 
 
 Vue.use(VueRouter)
-const login = () => import("../views/Login")
 const routes = [
     {
         path: '/',
         name: '',
-        component: login
+        component: () => import("../views/Login")
     },
     {
         path: '/main',
@@ -19,10 +18,6 @@ const routes = [
                 path: '/home',
                 name: 'home',
                 component: () => import('../views/home')
-            }, {
-                path: '/user',
-                name: 'user',
-                component: () => import('../views/User')
             },
             {
                 path: '/sellpage',
@@ -34,14 +29,18 @@ const routes = [
                 component: () => import('../views/oneIpcountpage/oneIpcountpage')
 
             }, {
-                path:'/badmanpage',
-                name:'badmanpage',
-                component:()=>import('../views/badmanpage/badmanpage')
+                path: '/badmanpage',
+                name: 'badmanpage',
+                component: () => import('../views/badmanpage/badmanpage')
             },
             {
-                path:'/badwordpage',
-                name:'badwordpage',
-                component:()=>import('../views/badwordpage/badwordpage')
+                path: '/badwordpage',
+                name: 'badwordpage',
+                component: () => import('../views/badwordpage/badwordpage')
+            }, {
+                path: '/oneApicountpage',
+                name: 'oneApicountpage',
+                component: () => import('../views/oneApicountpage/oneApicountpage')
             }
         ]
     },

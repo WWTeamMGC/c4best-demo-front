@@ -47,7 +47,7 @@
       </div>
 <!--      折线图的位置-->
       <el-card style="height: 400px">
-
+        <seller></seller>
       </el-card>
       <div class="graph">
 <!--        柱状图-->
@@ -60,8 +60,12 @@
 </template>
 
 <script>
+import seller from "@/components/seller";
 export default {
   name: 'home',
+  components:{
+    seller:seller
+  },
   data() {
     return {
       userImg: require('../../assets/images/user.png'),

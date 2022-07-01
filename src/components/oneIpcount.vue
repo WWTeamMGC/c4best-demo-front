@@ -1,5 +1,5 @@
 <template>
-  <e-charts class="chart" :option="option" style="margin-top:1px"></e-charts>
+  <e-charts class="chart" :option="option" style="margin-top:20px"></e-charts>
 
 </template>
 
@@ -75,6 +75,9 @@ export default {
 
 <style scoped>
 .chart{
-
+  margin-top: 20px;
+  margin-left: 400px;
+  height: 800px;
+  width: 800px;
 }
 </style>
