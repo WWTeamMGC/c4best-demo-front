@@ -30,6 +30,16 @@ export default {
   }, methods: {
     indexMethod(index) {
       return index * 2;
+    },
+    searchOneApi(){
+      this.$axios({
+        method:'post',
+        url:'http://127.0.0.1:8080:/BadApi/Ip',
+      }).then(response=>{
+        this.tableData=response.data.badiplist
+      })
+    },created() {
+      this.searchOneApiCount()
     }
   }
 }

@@ -34,7 +34,19 @@ export default {
       search: ''
     }
   },
-  methods:{}
+  methods:{
+    searchOneApiCount(){
+      this.$axios({
+        method:'post',
+        url:'http://127.0.0.1:8080:/BadApi/Ip',
+      }).then(response=>{
+        this.tableData=response.data.badiplist
+      })
+    }
+  },
+  created() {
+    this.searchOneApiCount()
+  }
 
 }
 </script>

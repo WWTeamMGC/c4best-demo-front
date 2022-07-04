@@ -29,21 +29,21 @@
   </el-table>
 
 
-  <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-    <el-form :model="form">
+  <el-dialog title="新增" :visible.sync="dialogFormVisible">
+    <el-form :model="form" ref="form">
       <el-form-item label="IP" :label-width="formLabelWidth">
         <el-input v-model="form.ip" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item label="PC/MP" :label-width="formLabelWidth">
+<!--      <el-form-item label="PC/MP" :label-width="formLabelWidth">
         <el-input v-model="form.pcmp" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="ADDRESS" :label-width="formLabelWidth">
         <el-input v-model="form.address" autocomplete="off"></el-input>
-      </el-form-item>
+      </el-form-item>-->
     </el-form>
     <div slot="footer" class="dialog-footer">
-      <el-button @click="dialogFormVisible = false">取 消</el-button>
-      <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      <el-button @click="emptyUserData('form')">取 消</el-button>
+      <el-button type="primary" @click=" insertBadMan('form')" ref="button">确 定</el-button>
     </div>
   </el-dialog>
 
@@ -102,7 +102,47 @@ export default {
       }).then(response => {
        this.tableData=response.data.badiplist
       })
-    }
+    },
+    insertBadMan(){
+
+      var ip = this.form.ip
+      if (ip != null && ip != ""){
+        this.$refs.button.submit;
+        let postData = this.qs.stringify({
+          ip: this.form.ip
+        })
+        /*this.dialogFormVisible = false
+        this.emptyUserData();*/
+        this.$axios({
+          method:'post',
+          url:'http://127.0.0.1:8080/user/SignIn',
+          data:postData
+        }).then(response=>{
+          var data = response.data;
+          if (data.code == 1000){
+            this.searchBadMan()
+            this.dialogFormVisible = false
+
+          }else {
+            alert("新增失败")
+          }
+          this.emptyUserData();
+        })
+      }else {
+        alert("用户名或密码不能为空")
+      }
+    },
+    /**
+     * 清空绑定数据
+     */
+    emptyUserData() {
+
+      this.dialogFormVisible = false
+      this.form = {
+        ip:''
+      }
+
+    },
   },
   created() {
     this.searchBadMan()
