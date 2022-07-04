@@ -44,24 +44,25 @@ export default {
   name: "badman",
   data() {
     return {
+      tableData:[],
       //虚拟数据
-      tableData: [{
-        ip: '2016-05-02',
-        pc_mp: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        ip: '2016-05-04',
-        pc_mp: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        ip: '2016-05-01',
-        pc_mp: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        ip: '2016-05-03',
-        pc_mp: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }],
+      // tableData: [{
+      //   ip: '2016-05-02',
+      //   pc_mp: '王小虎',
+      //   address: '上海市普陀区金沙江路 1518 弄'
+      // }, {
+      //   ip: '2016-05-04',
+      //   pc_mp: '王小虎',
+      //   address: '上海市普陀区金沙江路 1517 弄'
+      // }, {
+      //   ip: '2016-05-01',
+      //   pc_mp: '王小虎',
+      //   address: '上海市普陀区金沙江路 1519 弄'
+      // }, {
+      //   ip: '2016-05-03',
+      //   pc_mp: '王小虎',
+      //   address: '上海市普陀区金沙江路 1516 弄'
+      // }],
       search: ''
     }
   },
@@ -70,7 +71,7 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
-        url:'',
+        url:'http://127.0.0.1:8080:/BadApi/Ip',
         data:row
       }).then(response=>{
         //删除成功
@@ -81,15 +82,17 @@ export default {
         }
       })
     },
-    /*handleEdit(index, row) {
+    /*
+    handleEdit(index, row) {
       console.log(index, row);
-    },*/
+    },
+    */
     searchBadMan(){
       this.$axios({
         method: 'post',
-        url: ''
+        url: 'http://127.0.0.1:8080/BadApi/Ip'
       }).then(response => {
-        this.tableData = response.data
+       this.tableData=response.data.badiplist
       })
     }
   },

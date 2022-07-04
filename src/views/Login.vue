@@ -45,9 +45,7 @@ export default {
       var name = this.username
       var passWord = this.password
       //模拟登录成功跳转，后续这段代码注释掉
-      this.$router.push({
-        name:'home'
-      })
+
       if (name != null && name != ""&& passWord != null && passWord != ""){
         this.$refs.button.submit;
         let postData = this.qs.stringify({
@@ -56,11 +54,12 @@ export default {
         })
         this.$axios({
           method:'post',
-          url:'/user/SignIn',
+          url:'http://127.0.0.1:8080/user/SignIn',
           data:postData
         }).then(response=>{
           var data = response.data;
           if (data.code == 1000){
+            localStorage.setItem("token",data.data) 
             //登录成功跳转首页页面
           this.$router.push({
             name:'home'

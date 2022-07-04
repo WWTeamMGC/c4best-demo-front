@@ -44,11 +44,11 @@ export default {
 
           this.$axios({
             method: 'post',
-            url: '/user/SignOut',
+            url: 'http://127.0.0.1:8080/user/SignUp',
             data: postData
           }).then(response => {
             var data = response.data;
-            if (data.code == 1) {
+            if (data.code == 1000) {
               //注册成功跳转登录页面
               this.$router.push({
                 path: '/'

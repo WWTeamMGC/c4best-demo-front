@@ -11,7 +11,7 @@ export default {
   name: "seller",
   data() {
     return {
-      data: this.getRandomData()
+      data: this.totalCount()
     }
   },
   computed: {
@@ -55,18 +55,19 @@ export default {
     //接收后端来的数据
     totalCount() {
       this.$axios({
-        method: 'post',
-        url: ''
+        method: 'get',
+        url: 'http://127.0.0.1:8080/Count/Figure'
       }).then(response => {
-        return response
+        return response.data.data
       })
+      return this.response.data.data
     }
   },
   //数据实时更新
   created() {
     setInterval(() => {
-      this.data = this.getRandomData()
-    }, 1000 * 60)
+      this.data = this.totalCount()
+    }, 1000 * 5)
   }
 }
 </script>
