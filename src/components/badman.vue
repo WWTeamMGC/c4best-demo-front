@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-button id="add" type="text" @click="dialogFormVisible = true">添加</el-button>
+  <el-button id="add" type="text"icon="el-icon-circle-plus-outline" @click="dialogFormVisible = true" style="" size="big">添加</el-button>
   <el-table
       :data="tableData"
       style="width: 100%">
@@ -18,7 +18,7 @@
     </el-table-column>
     <el-table-column
         align="right">
->
+
       <template slot-scope="scope">
         <el-button
             size="mini"
@@ -34,12 +34,14 @@
       <el-form-item label="IP" :label-width="formLabelWidth">
         <el-input v-model="form.ip" autocomplete="off"></el-input>
       </el-form-item>
+
 <!--      <el-form-item label="PC/MP" :label-width="formLabelWidth">
         <el-input v-model="form.pcmp" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="ADDRESS" :label-width="formLabelWidth">
         <el-input v-model="form.address" autocomplete="off"></el-input>
       </el-form-item>-->
+
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="emptyUserData('form')">取 消</el-button>

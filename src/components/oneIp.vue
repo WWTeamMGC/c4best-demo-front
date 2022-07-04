@@ -24,7 +24,10 @@ export default {
   name: "oneIp",
   data() {
     return {
-      tableData: [{}],
+      tableData: [{
+        url:'123456',
+        data:'1270.0.0.'
+      }],
       search: ''
     }
   }, methods: {

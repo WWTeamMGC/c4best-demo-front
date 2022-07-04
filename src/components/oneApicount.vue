@@ -19,7 +19,10 @@
         label="操作"
         width="200">
       <template slot-scope="scope">
-        <router-link to="/oneApipage">查看</router-link>
+        <router-link to="/oneApi">
+          <el-button type="primary" round>查看</el-button>
+        </router-link>
+
       </template>
     </el-table-column>
   </el-table>
