@@ -1,4 +1,24 @@
 <template>
+  <body>
+  <div>
+    <vue-particles
+        color="#555"
+        :particleOpacity="0.7"
+        :particlesNumber="150"
+        shapeType="circle"
+        :pparticleSize="4"
+        linesColor="#555"
+        :linewidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :lineDistance="150"
+        :moveSpeed="2"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="false"
+        clickMode="push"
+        class="lizi"/>
+  </div>
   <section>
     <div class="container">
       <div class="form">
@@ -20,6 +40,7 @@
       </div>
     </div>
   </section>
+</body>
 </template>
 
 <script>
@@ -81,7 +102,7 @@ section{
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to bottom,#409EFF,#fff);
+  //background: linear-gradient(to bottom,#409EFF,#fff);
 }
 .container{
   position: relative;
@@ -106,7 +127,7 @@ section{
 }
 .form h2{
   position: relative;
-  color: #FFFFFF;
+  color: #409EFF;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 5px;
@@ -119,7 +140,7 @@ section{
   bottom: -5px;
   width: 0px;
   height: 3px;
-  background: #fff;
+  background: #409EFF;
   transition: 0.5s;
 }
 .form h2:hover:before{
@@ -141,14 +162,14 @@ section{
   border-bottom: 1px solid rgba(255,255,255,0.5);
   font-size: 16px;
   letter-spacing: 1px;
-  color: #fff;
+  color: #409EFF;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 .form .inputBox input ::placeholder{
-  color: #fff;
+  color: #409EFF;
 }
 .form.inputBox input[type="submit"]{
-  background: #fff;
+  background: #409EFF;
   color:#666;
   max-width: 120px;
   margin-bottom: 20px ;

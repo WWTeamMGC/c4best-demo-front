@@ -23,6 +23,7 @@
         <router-link to="/oneIp">
           <el-button type="primary" round>查看</el-button>
         </router-link>
+        <el-button type="danger" round>拉黑</el-button>
       </template>
     </el-table-column>
   </el-table>
