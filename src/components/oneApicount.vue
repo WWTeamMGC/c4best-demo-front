@@ -1,7 +1,31 @@
 <template>
-  <div id="oneApicount">
-    <div id="demo2" style="width: 1000px;height: 800px"></div>
-  </div>
+  <el-table
+      :data="tableData"
+      border
+      style="width: 100%">
+    <el-table-column
+        fixed
+        prop="url"
+        label="地址"
+        width="700">
+    </el-table-column>
+    <el-table-column
+        prop="ncount"
+        label="访问次数"
+        width="700">
+    </el-table-column>>
+    <el-table-column
+        fixed="right"
+        label="操作"
+        width="200">
+      <template slot-scope="scope">
+        <router-link to="/oneApi">
+          <el-button type="primary" round>查看</el-button>
+        </router-link>
+
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -9,32 +33,22 @@ export default {
   name: "oneApicount",
   data(){
     return{
-      option :{
-        xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [
-          {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'bar',
-            showBackground: true,
-            backgroundStyle: {
-              color: 'rgba(180, 180, 180, 0.2)'
-            }
-          }
-        ]
-      }
+      tableData:[{}],
+      search: ''
     }
   },
-  mounted:function () {
-    //初始化绘制图表的echarts实例
-    var myChart=echarts.init(document.querySelector('#demo2'))
-
-    myChart.setOption(this.option)
+  methods:{
+    searchOneApiCount(){
+      this.$axios({
+        method:'post',
+        url:'http://127.0.0.1:8080:/BadApi/Ip',
+      }).then(response=>{
+        this.tableData=response.data.badiplist
+      })
+    }
+  },
+  created() {
+    this.searchOneApiCount()
   }
 
 }

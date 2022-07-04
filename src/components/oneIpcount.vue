@@ -1,83 +1,75 @@
 <template>
-  <e-charts class="chart" :option="option" style="margin-top:20px"></e-charts>
+  <el-table
+      :data="tableData"
+      border
+      style="width: 100%">
+    <el-table-column
+        fixed
+        prop="url"
+        label="地址"
+        width="700">
+    </el-table-column>
+    <el-table-column
+        prop="ncount"
+        label="访问次数"
+        width="700">
+    </el-table-column>
 
+    <el-table-column
+        fixed="right"
+        label="操作"
+        width="200">
+      <template slot-scope="scope">
+        <router-link to="/oneIp">
+          <el-button type="primary" round>查看</el-button>
+        </router-link>
+        <el-button @click="goBlack(scope.$index, scope.row)" type="danger" round >拉黑</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
 export default {
   name: "oneIpcount",
-  data(){
-    return{
-      data: this.getRandomData()
+  data() {
+    return {
+      tableData: [{}],
+      search: ''
     }
   },
-  computed:{
-    option() {
-      return{
-        xAxis: {
-          type: 'category',
-          data:/* ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']*/this.data.map(d => d.time)
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [
-          {
-            data: /*[120, 200, 150, 80, 70, 110, 130],*/ this.data.map(d => d.value),
-            type: 'bar',
-            showBackground: true,
-            backgroundStyle: {
-              color: 'rgba(180, 180, 180, 0.2)'
-            }
-          }
-        ]
-      };
-    }
-  },
+  computed: {},
   methods: {
-    //模拟后端来的数据，后端来数据之后注释掉
-    getRandomData() {
-      return [{
-        time: '2018-01-01',
-        value: Math.random() * 10
-      },
-        {
-          time: '2018-01-01',
-          value: Math.random() * 100
-        },
-        {
-          time: '2018-01-01',
-          value: Math.random() * 212
-        }, {
-          time: '2018-01-01',
-          value: Math.random() * 212
-        },]
+    goBlack(index, row) {
+      /*console.log(index, row);*/
+      this.$axios({
+        method:'post',
+        url:'',
+        data:row
+      }).then(response=>{
+        //拉黑成功
+        if (response.data == 1){
+          this.searchOneIpCount()
+        }else {
+          alert("系统繁忙，请稍后重试.....")
+        }
+      })
     },
-    //接收后端来的数据
-    totalCount() {
+    searchOneIpCount(){
       this.$axios({
         method: 'post',
-        url: ''
+        url: 'http://127.0.0.1:8080/BadApi/Ip'
       }).then(response => {
-        return response
+        this.tableData=response.data.badiplist
       })
-    }
+    },
   },
-  //数据实时更新
   created() {
-    setInterval(() => {
-      this.data = this.getRandomData()
-    }, 1000 * 60)
+    this.searchOneIpCount()
   }
-
 }
 </script>
 
 <style scoped>
-.chart{
-  margin-top: 20px;
-  margin-left: 400px;
-  height: 800px;
-  width: 800px;
-}
+
 </style>
