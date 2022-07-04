@@ -10,7 +10,7 @@
         width="700">
     </el-table-column>
     <el-table-column
-        prop="ncount"
+        prop="count"
         label="访问次数"
         width="700">
     </el-table-column>>
@@ -40,10 +40,10 @@ export default {
   methods:{
     searchOneApiCount(){
       this.$axios({
-        method:'post',
-        url:'http://127.0.0.1:8080:/BadApi/Ip',
+        method:'get',
+        url:'http://127.0.0.1:8080/Count/ApiDetail',
       }).then(response=>{
-        this.tableData=response.data.badiplist
+        this.tableData=response.data.data
       })
     }
   },

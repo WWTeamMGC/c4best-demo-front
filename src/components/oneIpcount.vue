@@ -10,7 +10,7 @@
         width="700">
     </el-table-column>
     <el-table-column
-        prop="ncount"
+        prop="count"
         label="访问次数"
         width="700">
     </el-table-column>
@@ -34,7 +34,7 @@ export default {
   name: "oneIpcount",
   data() {
     return {
-      tableData: [{}],
+      tableData: [],
       search: ''
     }
   },
@@ -44,11 +44,11 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
-        url:'',
+        url:'http://127.0.0.1:8080/BadApi/setIp',
         data:row
       }).then(response=>{
         //拉黑成功
-        if (response.data == 1){
+        if (response.data.code == 1000){
           this.searchOneIpCount()
         }else {
           alert("系统繁忙，请稍后重试.....")
@@ -57,10 +57,10 @@ export default {
     },
     searchOneIpCount(){
       this.$axios({
-        method: 'post',
-        url: 'http://127.0.0.1:8080/BadApi/Ip'
+        method: 'get',
+        url: 'http://127.0.0.1:8080/Count/IpDetail'
       }).then(response => {
-        this.tableData=response.data.badiplist
+        this.tableData=response.data.data
       })
     },
   },

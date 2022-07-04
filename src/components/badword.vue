@@ -23,8 +23,6 @@
 
           <el-button @click="BadWordDelete(scope.$index, scope.row)" type="text" size="small">删除</el-button>
 
-          <el-button @click="BadWordDelete(scope.row)" type="text" size="big">删除</el-button>
-
         </template>
       </el-table-column>
     </el-table>
@@ -53,20 +51,20 @@ export default {
     searchBadWord(){
       this.$axios({
         method: 'post',
-        url: 'http://127.0.0.1:8080/BadApi/Ip'
+        url: 'http://127.0.0.1:8080/BadApi/Words'
       }).then(response => {
-        this.tableData=response.data.badiplist
+        this.tableData=response.data.badwordslist
       })
     },
     BadWordDelete(index, row) {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
-        url:'http://127.0.0.1:8080:/BadApi/Ip',
+        url:'http://127.0.0.1:8080/BadApi/delWords',
         data:row
       }).then(response=>{
         //删除成功
-        if (response.data == 1){
+        if (response.data.code == 1000){
           this.searchBadWord()
         }else {
           alert("系统繁忙，请稍后重试.....")
@@ -85,7 +83,7 @@ export default {
         this.emptyUserData();*/
         this.$axios({
           method:'post',
-          url:'http://127.0.0.1:8080/user/SignIn',
+          url:'http://127.0.0.1:8080/BadApi/setWords',
           data:postData
         }).then(response=>{
           var data = response.data;
@@ -129,8 +127,8 @@ export default {
         resource: '',
         desc: ''
       },
-      formLabelWidth: '120px',
-      tableData: [{}]
+      formLabelWidth: '100px',
+      tableData: [],
     }
   },
 
