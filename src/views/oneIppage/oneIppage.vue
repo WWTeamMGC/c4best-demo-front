@@ -5,10 +5,12 @@
 <script>
 import oneIp from "@/components/oneIp";
 export default {
-  name: "oneIp",
-  components:{
-    oneIp:oneIp
-  }
+  name: "oneIppage",
+  components: {
+    oneIp : oneIp
+  },
+
+
 }
 </script>
 
