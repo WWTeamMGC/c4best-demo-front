@@ -30,9 +30,11 @@ export default {
       var name = this.username
       var passWord = this.password
       //模拟注册成功跳转，后续这段代码注释掉
+      /*
       this.$router.push({
         path: '/'
       })
+      */
       if (name != null && name != "" && passWord != null && passWord != "") {
         var regExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
         if (regExp.test(name)){
@@ -44,11 +46,11 @@ export default {
 
           this.$axios({
             method: 'post',
-            url: '/user/SignOut',
+            url: '/user/SignUp',
             data: postData
           }).then(response => {
             var data = response.data;
-            if (data.code == 1) {
+            if (data.code == 1000) {
               //注册成功跳转登录页面
               this.$router.push({
                 path: '/'

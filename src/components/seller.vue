@@ -11,10 +11,11 @@ export default {
   name: "seller",
   data() {
     return {
-      data: this.getRandomData()
+      data: this.totalCount()
     }
   },
   computed: {
+    
     option() {
       return {
         xAxis: {
@@ -54,18 +55,33 @@ export default {
     },
     //接收后端来的数据
     totalCount() {
+      var token = localStorage.getItem("token");
       this.$axios({
-        method: 'post',
-        url: ''
+        method: 'get',
+        headers:{ "Authorization": "Bearer "+token },
+        url: 'http://127.0.0.1:8081/Count/Figure'
       }).then(response => {
-        return response
+        let letter=[]
+        var jsarr=JSON.parse( response.data.data );
+        // alert(response.data.data)
+        // let list=JSON.parse(response.data.data)
+        // console.log(list)
+        // for (i = 0; i < response.data.length; i++) {
+        //   time=i.time.value
+        //   letter.push(time)
+        // }
+        for(let i in jsarr){
+        letter.push(i)
+        }
+        alert(jsarr)
+        return letter.value
       })
     }
   },
   //数据实时更新
   created() {
     setInterval(() => {
-      this.data = this.getRandomData()
+      this.data = this.totalCount()
     }, 1000 * 60)
   }
 }
