@@ -81,11 +81,11 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
-        url:'http://127.0.0.1:8080:/BadApi/Ip',
+        url:'http://127.0.0.1:8080/BadApi/delIp',
         data:row
       }).then(response=>{
         //删除成功
-        if (response.data == 1){
+        if (response.data.code == 1000){
           this.searchBadMan()
         }else {
           alert("系统繁忙，请稍后重试.....")
@@ -117,7 +117,7 @@ export default {
         this.emptyUserData();*/
         this.$axios({
           method:'post',
-          url:'http://127.0.0.1:8080/user/SignIn',
+          url:'http://127.0.0.1:8080/BadApi/setIp',
           data:postData
         }).then(response=>{
           var data = response.data;
