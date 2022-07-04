@@ -48,12 +48,17 @@ const routes = [
             }, {
                 path: '/oneIp',
                 name: 'oneIp',
-                component:()=>import('../views/oneIppage/oneIppage')
+                component: () => import('../views/oneIppage/oneIppage')
+            }, {
+                path: '/image',
+                name:'image',
+                component:()=>import('../components/image')
+
             }
 
         ]
-        },
-        {
+    },
+    {
         path: '/register',
         name: 'register',
         component: () => import('../views/register/Register')

@@ -52,6 +52,11 @@ export default {
           label: 'Api访问次数',
           icon: 'user',
 
+        },{
+        path: '/image',
+          name: 'image',
+          label: '图像审核',
+          icon: 'picture-outline',
         },
         {
           label: '其他',

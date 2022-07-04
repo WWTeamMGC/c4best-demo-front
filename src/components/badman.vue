@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-button id="add" type="text" @click="dialogFormVisible = true" style="">添加</el-button>
+  <el-button id="add" type="text"icon="el-icon-circle-plus-outline" @click="dialogFormVisible = true" style="" size="big">添加</el-button>
   <el-table
       :data="tableData"
       style="width: 100%">
@@ -18,7 +18,7 @@
     </el-table-column>
     <el-table-column
         align="right">
->
+
       <template slot-scope="scope">
         <el-button
             size="mini"

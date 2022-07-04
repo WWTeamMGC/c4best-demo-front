@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-button id="add" type="text" @click="dialogFormVisible = true">添加</el-button>
+    <div id="add">
+      <el-button type="text"icon="el-icon-circle-plus-outline" @click="dialogFormVisible = true" size="big" >添加</el-button>
+  </div>
     <el-table
         :data="tableData"
         border
@@ -11,12 +13,14 @@
           label="敏感词"
           width="1500">
       </el-table-column>
+
       <el-table-column
           fixed="right"
           label="操作"
           width="100">
+
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
+          <el-button @click="handleClick(scope.row)" type="text" size="big">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
