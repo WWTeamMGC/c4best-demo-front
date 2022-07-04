@@ -20,7 +20,8 @@ Vue.prototype.qs = qs
 Vue.prototype.$http= http
 Vue.config.productionTip = false
 // 挂载echarts this.$echarts
-Vue.prototype.$echarts=window.echarts
+import * as echarts from 'echarts'
+Vue.prototype.$echarts=echarts
 import '../src/assets/less/global.less'
 new Vue({
   router,

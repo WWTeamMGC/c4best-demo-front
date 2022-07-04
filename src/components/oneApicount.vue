@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import {runInContext as $} from "yarn/lib/cli";
+
 export default {
   name: "oneApicount",
   data(){
@@ -33,8 +35,9 @@ export default {
   mounted:function () {
     //初始化绘制图表的echarts实例
     var myChart=echarts.init(document.querySelector('#demo2'))
-
-    myChart.setOption(this.option)
+    $.get('data.json').done(function(data){
+      myChart.setOption(this.option)
+    })
   }
 
 }
