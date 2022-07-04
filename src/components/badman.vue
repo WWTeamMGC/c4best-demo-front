@@ -47,6 +47,7 @@ export default {
       tableData:[],
       //虚拟数据
       // tableData: [{
+
       //   ip: '2016-05-02',
       //   pc_mp: '王小虎',
       //   address: '上海市普陀区金沙江路 1518 弄'
@@ -71,7 +72,7 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
-        url:'http://127.0.0.1:8080:/BadApi/Ip',
+        url:'http://127.0.0.1:8080/BadApi/delIp',
         data:row
       }).then(response=>{
         //删除成功

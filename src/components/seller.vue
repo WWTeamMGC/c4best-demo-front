@@ -11,7 +11,7 @@ export default {
   name: "seller",
   data() {
     return {
-      data: this.totalCount()
+      abcdata: []
     }
   },
   computed: {
@@ -19,14 +19,14 @@ export default {
       return {
         xAxis: {
           type: 'category',
-          data: this.data.map(d => d.time)
+          data: this.abcdata.map(d => d.time)
         },
         yAxis: {
           type: 'value'
         },
         series: [
           {
-            data: this.data.map(d => d.value),
+            data: this.abcdata.map(d => d.value),
             type: 'line'
           }
         ]
@@ -58,16 +58,16 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8080/Count/Figure'
       }).then(response => {
-        return response.data.data
+        this.abcdata=response.data.data
       })
-      return this.response.data.data
+      // return response.data.data
     }
   },
   //数据实时更新
   created() {
     setInterval(() => {
-      this.data = this.totalCount()
-    }, 1000 * 5)
+      this.totalCount()
+    }, 1000 * 10)
   }
 }
 </script>
