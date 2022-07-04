@@ -75,6 +75,6 @@ export default {
 <style scoped>
 .chart {
 margin-top: auto;
-  height: 400px;
+  height: 780px;
 }
 </style>

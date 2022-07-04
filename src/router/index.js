@@ -41,6 +41,16 @@ const routes = [
                 path: '/oneApicountpage',
                 name: 'oneApicountpage',
                 component: () => import('../views/oneApicountpage/oneApicountpage')
+            },
+            {
+                path: '/oneIp',
+                name: 'oneIp',
+                component:() =>import('../views/oneIp/oneIppage')
+            },
+            {
+                path:'/oneApi',
+                name:'oneApi',
+                component:() =>import('../views/oneApipage/oneApipage')
             }
         ]
     },

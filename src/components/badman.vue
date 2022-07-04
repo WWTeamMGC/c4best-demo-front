@@ -19,20 +19,20 @@
     </el-table-column>
     <el-table-column
         align="right">
-<!--      <template slot="header" slot-scope="scope">
-        <el-input
-            v-model="search"
-            size="mini"
-            placeholder="输入关键字搜索"/>
-      </template>-->
       <template slot-scope="scope">
-<!--        <el-button
-            size="mini"
-            @click="handleEdit(scope.$index, scope.row)">Edit</el-button>-->
         <el-button
             size="mini"
             type="danger"
-            @click="handleDelete(scope.$index, scope.row)">移除</el-button>
+            @click="handleDelete(scope.$index, scope.row)">增加</el-button>
+        <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+
+        <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)">查看</el-button>
 <!--        <div>{{scope.row}}</div>-->
       </template>
     </el-table-column>
@@ -44,25 +44,7 @@ export default {
   name: "badman",
   data() {
     return {
-      tableData:[],
-      //虚拟数据
-      // tableData: [{
-      //   ip: '2016-05-02',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1518 弄'
-      // }, {
-      //   ip: '2016-05-04',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1517 弄'
-      // }, {
-      //   ip: '2016-05-01',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1519 弄'
-      // }, {
-      //   ip: '2016-05-03',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1516 弄'
-      // }],
+      tableData:[{}],
       search: ''
     }
   },
