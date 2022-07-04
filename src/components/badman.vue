@@ -1,4 +1,6 @@
 <template>
+<div>
+  <el-button id="add" type="text" @click="dialogFormVisible = true">添加</el-button>
   <el-table
       :data="tableData"
       style="width: 100%">
@@ -16,24 +18,39 @@
     </el-table-column>
     <el-table-column
         align="right">
-<!--      <template slot="header" slot-scope="scope">
-        <el-input
-            v-model="search"
-            size="mini"
-            placeholder="输入关键字搜索"/>
-      </template>-->
+>
       <template slot-scope="scope">
-<!--        <el-button
-            size="mini"
-            @click="handleEdit(scope.$index, scope.row)">Edit</el-button>-->
         <el-button
             size="mini"
             type="danger"
             @click="handleDelete(scope.$index, scope.row)">移除</el-button>
-<!--        <div>{{scope.row}}</div>-->
       </template>
     </el-table-column>
   </el-table>
+
+
+  <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+    <el-form :model="form">
+      <el-form-item label="IP" :label-width="formLabelWidth">
+        <el-input v-model="form.ip" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="PC/MP" :label-width="formLabelWidth">
+        <el-input v-model="form.pcmp" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="ADDRESS" :label-width="formLabelWidth">
+        <el-input v-model="form.address" autocomplete="off"></el-input>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="dialogFormVisible = false">取 消</el-button>
+      <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+    </div>
+  </el-dialog>
+
+
+
+
+</div>
 </template>
 
 <script>
@@ -41,25 +58,19 @@ export default {
   name: "badman",
   data() {
     return {
-      tableData:[],
-      //虚拟数据
-      // tableData: [{
-      //   ip: '2016-05-02',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1518 弄'
-      // }, {
-      //   ip: '2016-05-04',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1517 弄'
-      // }, {
-      //   ip: '2016-05-01',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1519 弄'
-      // }, {
-      //   ip: '2016-05-03',
-      //   pc_mp: '王小虎',
-      //   address: '上海市普陀区金沙江路 1516 弄'
-      // }],
+      dialogTableVisible: false,
+      dialogFormVisible: false,
+      form: {
+        ip:'',
+        pcmp:'',
+        address:'',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      formLabelWidth: '120px',
+      tableData:[{}],
       search: ''
     }
   },

@@ -18,16 +18,16 @@
     </el-table-column>
   </el-table>
 </template>
+
 <script>
 export default {
-  name: "oneip",
+  name: "oneIp",
   data() {
     return {
       tableData: [{}],
       search: ''
     }
-  },
-  methods: {
+  }, methods: {
     indexMethod(index) {
       return index * 2;
     }

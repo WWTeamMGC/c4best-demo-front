@@ -43,13 +43,13 @@ const routes = [
                 component: () => import('../views/oneApicountpage/oneApicountpage')
             },
             {
-                path: '/oneIp',
-                name: 'oneIp',
+                path: '/oneIppage',
+                name:'oneIppage',
                 component:() =>import('../views/oneIp/oneIppage')
             },
             {
-                path:'/oneApi',
-                name:'oneApi',
+                path:'/oneApipage',
+                name:'oneApipage',
                 component:() =>import('../views/oneApipage/oneApipage')
             }
         ]
