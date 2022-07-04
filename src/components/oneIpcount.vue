@@ -5,7 +5,7 @@
       style="width: 100%">
     <el-table-column
         fixed
-        prop="url"
+        prop="ip"
         label="地址"
         width="700">
     </el-table-column>
@@ -41,11 +41,14 @@ export default {
   computed: {},
   methods: {
     goBlack(index, row) {
+      let postData = this.qs.stringify({
+        ip: row.ip
+      })
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
         url:'http://127.0.0.1:8080/BadApi/setIp',
-        data:row
+        data:postData
       }).then(response=>{
         //拉黑成功
         if (response.data.code == 1000){
