@@ -12,8 +12,8 @@
         width="180">
     </el-table-column>
     <el-table-column
-        prop="count"
-        label="访问次数"
+        prop="data"
+        label="数据"
         width="180">
     </el-table-column>
   </el-table>
@@ -22,8 +22,12 @@
 <script>
 export default {
   name: "oneApi",
-  data(){},
-  methods: {
+  data() {
+    return {
+      tableData: [{}],
+      search: ''
+    }
+  }, methods: {
     indexMethod(index) {
       return index * 2;
     }

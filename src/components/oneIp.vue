@@ -8,21 +8,25 @@
     </el-table-column>
     <el-table-column
         prop="url"
-        label="URL"
+        label="地址"
         width="180">
     </el-table-column>
     <el-table-column
-        prop="count"
-        label="访问次数"
+        prop="data"
+        label="数据"
         width="180">
     </el-table-column>
-
   </el-table>
 </template>
 <script>
 export default {
   name: "oneip",
-  data(){},
+  data() {
+    return {
+      tableData: [{}],
+      search: ''
+    }
+  },
   methods: {
     indexMethod(index) {
       return index * 2;
