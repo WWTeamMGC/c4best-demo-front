@@ -40,7 +40,18 @@ export default {
   methods: {
     handleClick(row) {
       console.log(row);
+    },
+    searchImg(){
+      this.$axios({
+        method: 'post',
+        url: ''
+      }).then(response => {
+        this.tableData=response.data.badiplist
+      })
     }
+  },
+  created() {
+    this.searchImg()
   },
   data() {
     return {

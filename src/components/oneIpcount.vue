@@ -23,7 +23,7 @@
         <router-link to="/oneIp">
           <el-button type="primary" round>查看</el-button>
         </router-link>
-        <el-button type="danger" round>拉黑</el-button>
+        <el-button @click="goBlack(scope.$index, scope.row)" type="danger" round >拉黑</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -39,7 +39,34 @@ export default {
     }
   },
   computed: {},
-  methods: {}
+  methods: {
+    goBlack(index, row) {
+      /*console.log(index, row);*/
+      this.$axios({
+        method:'post',
+        url:'',
+        data:row
+      }).then(response=>{
+        //拉黑成功
+        if (response.data == 1){
+          this.searchOneIpCount()
+        }else {
+          alert("系统繁忙，请稍后重试.....")
+        }
+      })
+    },
+    searchOneIpCount(){
+      this.$axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8080/BadApi/Ip'
+      }).then(response => {
+        this.tableData=response.data.badiplist
+      })
+    },
+  },
+  created() {
+    this.searchOneIpCount()
+  }
 }
 </script>
 
