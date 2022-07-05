@@ -2,17 +2,17 @@
   <el-table
       :data="tableData"
       style="width: 100%">
+<!--    <el-table-column-->
+<!--        type="index"-->
+<!--        :index="indexMethod">-->
+<!--    </el-table-column>-->
     <el-table-column
-        type="index"
-        :index="indexMethod">
-    </el-table-column>
-    <el-table-column
-        prop="url"
+        prop="ip"
         label="地址"
         width="180">
     </el-table-column>
     <el-table-column
-        prop="data"
+        prop="count"
         label="数据"
         width="180">
     </el-table-column>
@@ -24,10 +24,7 @@ export default {
   name: "oneApi",
   data() {
     return {
-      tableData: [{
-        url:'123456',
-        data:'1270.0.0.'
-      }],
+      tableData: [],
       search: ''
     }
   }, methods: {
@@ -36,14 +33,16 @@ export default {
     },
     searchOneApi(){
       this.$axios({
-        method:'post',
-        url:'http://127.0.0.1:8080:/BadApi/Ip',
+        method:'get',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
+        url:'http://127.0.0.1:8080/Count/Api/'+this.$route.params.url,
       }).then(response=>{
-        this.tableData=response.data.badiplist
+        this.tableData=response.data.data
       })
-    },created() {
-      this.searchOneApiCount()
-    }
+    },
+  },
+  created() {
+    this.searchOneApi()
   }
 }
 </script>

@@ -51,6 +51,7 @@ export default {
     searchBadWord(){
       this.$axios({
         method: 'post',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url: 'http://127.0.0.1:8080/BadApi/Words'
       }).then(response => {
         this.tableData=response.data.badwordslist
@@ -60,6 +61,7 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url:'http://127.0.0.1:8080/BadApi/delWords',
         data:row
       }).then(response=>{
@@ -83,6 +85,7 @@ export default {
         this.emptyUserData();*/
         this.$axios({
           method:'post',
+          headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
           url:'http://127.0.0.1:8080/BadApi/setWords',
           data:postData
         }).then(response=>{

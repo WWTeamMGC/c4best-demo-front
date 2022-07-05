@@ -56,6 +56,7 @@ export default {
     totalCount() {
       this.$axios({
         method: 'get',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url: 'http://127.0.0.1:8080/Count/Figure'
       }).then(response => {
         this.abcdata=response.data.data

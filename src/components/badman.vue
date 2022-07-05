@@ -81,6 +81,7 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url:'http://127.0.0.1:8080/BadApi/delIp',
         data:row
       }).then(response=>{
@@ -100,6 +101,7 @@ export default {
     searchBadMan(){
       this.$axios({
         method: 'post',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url: 'http://127.0.0.1:8080/BadApi/Ip'
       }).then(response => {
        this.tableData=response.data.badiplist
@@ -117,6 +119,7 @@ export default {
         this.emptyUserData();*/
         this.$axios({
           method:'post',
+          headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
           url:'http://127.0.0.1:8080/BadApi/setIp',
           data:postData
         }).then(response=>{

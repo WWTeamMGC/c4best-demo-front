@@ -20,9 +20,11 @@
         label="操作"
         width="200">
       <template slot-scope="scope">
-        <router-link to="/oneIp">
-          <el-button type="primary" round>查看</el-button>
-        </router-link>
+        <el-button @click="goSearch(scope.$index, scope.row) "type="primary" round >查看</el-button>
+<!--        <router-link to="`/oneIp?url=${this.tableData.ip}`">-->
+<!--&lt;!&ndash;          <router-link :to="{path:'/oneIp',query: {url:this.tableData.ip}}">&ndash;&gt;-->
+<!--          <el-button type="primary" round>查看</el-button>-->
+<!--        </router-link>-->
         <el-button @click="goBlack(scope.$index, scope.row)" type="danger" round >拉黑</el-button>
       </template>
     </el-table-column>
@@ -40,6 +42,10 @@ export default {
   },
   computed: {},
   methods: {
+    goSearch(index,row){
+      // 字符串传参,params方式：不带问号，地址栏占位。
+      this.$router.push('/oneIp/' + row.ip)
+    },
     goBlack(index, row) {
       let postData = this.qs.stringify({
         ip: row.ip
@@ -47,6 +53,7 @@ export default {
       /*console.log(index, row);*/
       this.$axios({
         method:'post',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url:'http://127.0.0.1:8080/BadApi/setIp',
         data:postData
       }).then(response=>{
@@ -61,6 +68,7 @@ export default {
     searchOneIpCount(){
       this.$axios({
         method: 'get',
+        headers: {'Authorization': "Bearer "+localStorage.getItem("token")},
         url: 'http://127.0.0.1:8080/Count/IpDetail'
       }).then(response => {
         this.tableData=response.data.data
