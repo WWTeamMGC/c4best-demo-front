@@ -48,9 +48,9 @@ export default {
   },
   //数据实时更新
   created() {
-    setInterval(() => {
+    // setInterval(() => {
       this.totalCount()
-    }, 1000 * 30)
+    // }, 1000 * 30)
   }
 }
 </script>
