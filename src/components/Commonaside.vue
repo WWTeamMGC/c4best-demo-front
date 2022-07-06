@@ -2,7 +2,7 @@
 
   <el-menu default-active="1-4-1" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
            active-text-color="#ffd04b" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-    <h3>{{ isCollapse ? '流量' : ' 流量监控管理' }}</h3>
+    <h1>{{ isCollapse ? '流量' : ' 后台分析系统' }}</h1>
     <!--    1.遍历没有子菜单的信息，并遍历出来
             2.给出一个@click点击事件通过name来识别 -->
     <el-menu-item @click="clickMenu(item)" v-for="item in noChildern" :index="item.path" :key="item.path">
@@ -118,11 +118,11 @@ export default {
 .el-menu {
   height: 100%;
   border: none;
-
-  h3 {
+}
+  h1 {
     color: #fff;
     text-align: center;
-    line-height: 48px;
+    line-height: 80px;
   }
-}
+
 </style>
